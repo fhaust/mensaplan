@@ -1,0 +1,15 @@
+Name:           Mensaplan 
+Version:        0.9
+Description:    Simple scraper for FH and Uni Bielefeld canteen menues.
+License:        GPL-3
+Author:         Florian Hofmann
+Maintainer:     florian@fhaust.de
+Build-Type:     Simple
+Cabal-Version:  >= 1.2
+
+Executable mensaplan
+  Main-Is:          Mensaplan.hs
+  Build-Depends:    base, tagsoup, network, HTTP, utf8-string, dates
+  ghc-options:      -Wall -O2
+
+
