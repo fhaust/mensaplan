@@ -6,7 +6,6 @@ import Network.URI
 
 import Text.HTML.TagSoup 
 
-import Data.Dates hiding (Day)
 import Data.List
 
 import Text.Printf
