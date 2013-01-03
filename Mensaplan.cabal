@@ -51,6 +51,3 @@ executable Mensaplan
   
   -- Other library packages from which modules are imported.
   build-depends:       base, HTTP, network, tagsoup, dates, utf8-string
-
-  ghc-options:         -Wall -O
-  
