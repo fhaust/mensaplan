@@ -80,26 +80,14 @@ getMenues url = do
 
 -----------------------------
 
--- | get the current day as a number (Monday -> 1)
-dayOfWeek :: IO Int
-dayOfWeek = fmap (weekdayNumber . dateWeekDay) getCurrentDateTime 
-
------------------------------
-
 -- | plug it all together
 main ::  IO ()
 main = do
+  uniMenues <- getMenues uniMensaURL
+  fhMenues  <- getMenues fhMensaURL
  
-  d <- dayOfWeek
+  putStrLn "\n --- Uni Plan --- "
+  print $ head $ uniMenues
 
-  if d > 5 
-    then error "What are you doing here? It's weekend!"
-    else do
-      uniMenues <- getMenues uniMensaURL
-      fhMenues  <- getMenues fhMensaURL
-     
-      putStrLn "\n --- Uni Plan --- "
-      print $ uniMenues !! (d - 1)
-    
-      putStrLn "\n --- FH Plan --- "
-      print $ fhMenues !! (d - 1)
+  putStrLn "\n --- FH Plan --- "
+  print $ head $ fhMenues
