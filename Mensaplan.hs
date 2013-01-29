@@ -6,9 +6,12 @@ import Network.URI
 
 import Text.HTML.TagSoup 
 
+import Data.Dates hiding (Day)
 import Data.List
 
 import Text.Printf
+
+import Control.Monad
 
 import qualified Codec.Binary.UTF8.String as UTF8
 
@@ -79,14 +82,24 @@ getMenues url = do
 
 -----------------------------
 
+-- | get the current day as a number (Monday -> 1)
+dayOfWeek :: IO Int
+dayOfWeek = fmap (weekdayNumber . dateWeekDay) getCurrentDateTime 
+
+-----------------------------
+
 -- | plug it all together
 main ::  IO ()
 main = do
+
+  d <- dayOfWeek
+  when (d > 5) $ error "What are you doing here? It's weekend!"
+
   uniMenues <- getMenues uniMensaURL
   fhMenues  <- getMenues fhMensaURL
  
   putStrLn "\n --- Uni Plan --- "
-  print $ head $ uniMenues
+  print $ uniMenues !! (d - 1)
 
   putStrLn "\n --- FH Plan --- "
-  print $ head $ fhMenues
+  print $ fhMenues !! (d - 1)
