@@ -1,4 +1,4 @@
-# Mensaplan [![Build Status](https://travis-ci.org/[fhaust]/[mensaplan].png)](https://travis-ci.org/[fhaust]/[mensaplan])
+# Mensaplan [![Build Status](https://travis-ci.org/fhaust/mensaplan.png)](https://travis-ci.org/fhaust/mensaplan)
 
 Simple scraper for Bielefelds FH and Uni canteen menues written in Haskell.
 
